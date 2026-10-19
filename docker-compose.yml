@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: .
+    container_name: tg-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    # БД не используется — все данные приходят через внешний API.
+    # Если понадобится webhook вместо long-polling:
+    # ports:
+    #   - "8080:8080"
